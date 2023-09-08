@@ -17,7 +17,7 @@ const manager = (()=>{
         let list = new List(name, description, todos, isPersistent);
         list.id = lists.length;
         lists.push(list);
-        return list.id;
+        return {id: list.id, project: list};
     }
     return {createList, removeList, getCurrentLists, getList};
 
