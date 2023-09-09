@@ -6,6 +6,7 @@ const DOMmanager = (()=>{
     const taskList = document.querySelector('.task-list');
     let projects = [];
     const updateTasks = (project)=>{
+        taskList.innerHTML = '';
         project.todos.forEach(task => {
             taskList.append(createTask(task))
         });
