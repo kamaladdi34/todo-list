@@ -19,11 +19,37 @@
             </div>
         </section>
     </div>
-    <!-- <div class="add-task-popup">
-        <h3>Add a new task</h3>
+    <form class="add-task-popup">
+        <legend>Add new task</legend>
+        <ul>
+            <li>
+                <label for="task-title">Task title:</label>
+                <input type="text" placeholder="Title" id="task-title">
+            </li>
+            <li>
+                <label for="task-dsc">Task description:</label>
+                <input type="text" placeholder="Description" id="task-dsc">   
+            </li>
+            <li>
+                <label for="priority">Priority:</label>
+                <select name="priority-select" id="priority">
+                    <option value="low">low</option>
+                    <option value="medium">medium</option>
+                    <option value="heigh">heigh</option>
+                </select>
+            </li>
+            <li>
+                <label for="is-done">Is the task done?</label>
+                <input type="checkbox" id="is-done">
+            </li>
+        </ul>
+
+
+
+
         <button class="add">Add</button>
-    </div>
-    <div class="add-project-popup">
+    </form>
+    <!-- <div class="add-project-popup">
         <h3>Add a new project</h3>
         <button class="add">Add</button>
     </div> -->
