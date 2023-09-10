@@ -93,3 +93,13 @@ legend{
 .close{
     align-self: flex-end;
 }
+.task-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+.task-list > *{
+    display: flex;
+    justify-content: space-between;
+}

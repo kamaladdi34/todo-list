@@ -10,8 +10,7 @@ const DOMmanager = (()=>{
     const updateTasks = (project)=>{
         taskList.innerHTML = '';
         project.todos.forEach(task => {
-            taskList.append(createTask(task))
-            console.log(task);
+            taskList.append(createTask(task, project))
         });
     }
     const createProject = (project)=>{
@@ -21,11 +20,17 @@ const DOMmanager = (()=>{
         updateTasks(project);
         updateSelectedClass(project.id);
     }
-    const createTask = (todo)=>{
+    const createTask = (todo, project)=>{
         let task = document.createElement('div');
         let title = document.createElement('p');
         title.innerText = `${todo.title} ${todo.dueDate} ${todo.priority} ${todo.isDone} `;
-        task.append(title);
+        let closeButton = document.createElement('button');
+        closeButton.innerText = 'X';
+        task.append(title,closeButton);
+        closeButton.addEventListener('click',()=>{
+            project.removeTodo(todo.id);
+            updateTasks(project);
+        })
         return task;
     }
     const createProjectBar = (project)=>{
