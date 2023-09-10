@@ -27,6 +27,7 @@ const DOMmanager = (()=>{
         let closeButton = document.createElement('button');
         closeButton.innerText = 'X';
         closeButton.classList.add('delete');
+        task.classList.add('todo');
         task.append(title,closeButton);
         closeButton.addEventListener('click',()=>{
             project.removeTodo(todo.id);

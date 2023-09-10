@@ -95,12 +95,11 @@ legend{
 .task-list{
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 10px;
 }
 .task-list > *{
     display: flex;
     justify-content: space-between;
+    padding: 10px;
 }
 button.close, button.delete{
     background-color: red;
@@ -117,5 +116,8 @@ button.close, button.delete{
     background-color: rgb(0, 255, 191);
 }
 .selected-project{
+    background-color: white;
+}
+.todo{
     background-color: white;
 }
