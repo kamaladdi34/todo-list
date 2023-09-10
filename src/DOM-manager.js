@@ -51,6 +51,7 @@ const DOMmanager = (()=>{
     }
     const addTask = (taskInput)=>{
         let index = projects.map((e)=> e.project.id).indexOf(currentProjectId);
+        index = index<0? 0 : index;
         projects[index].project.addTodo(taskInput.title, taskInput.description, 'today', taskInput.priority, taskInput.isDone);
         updateTasks(projects[index].project);
     }
