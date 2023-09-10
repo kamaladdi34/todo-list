@@ -18,6 +18,7 @@ const DOMmanager = (()=>{
         let projectBar = createProjectBar(project);
         projects.push({projectBar: projectBar, project: project});
         updateTasks(project);
+        updateSelectedClass(project.id);
     }
     const createTask = (todo)=>{
         let task = document.createElement('div');
@@ -28,6 +29,7 @@ const DOMmanager = (()=>{
     }
     const createProjectBar = (project)=>{
         let bar = document.createElement('div');
+        bar.classList.add('selected-project');
         let barName = document.createElement('p');
         barName.innerText = project.name;
         let deleteButton = document.createElement('button');
@@ -43,15 +45,27 @@ const DOMmanager = (()=>{
         projectsList.append(bar);
         return bar;
     }
+    const updateSelectedClass = (id)=>{
+        for (let i = 0; i < projects.length; i++) {
+            if(projects[i].project.id == id){
+                projects[i].projectBar.classList.add('selected-project');
+            }else{
+                projects[i].projectBar.classList.remove('selected-project');
+            }
+                
+        }
+    }
     const deleteProject = (projectId)=>{
         let index = projects.map((e)=> e.project.id).indexOf(projectId);
         manager.removeList(projectId);
         projects[index].projectBar.remove();
         projects.splice(index,1);
+        currentProjectId = 0;
+        updateSelectedClass(0);
+        updateTasks(projects[0].project)
     }
     const addTask = (taskInput)=>{
         let index = projects.map((e)=> e.project.id).indexOf(currentProjectId);
-        index = index<0? 0 : index;
         projects[index].project.addTodo(taskInput.title, taskInput.description, 'today', taskInput.priority, taskInput.isDone);
         updateTasks(projects[index].project);
     }

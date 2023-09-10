@@ -84,3 +84,6 @@ legend{
 .hidden{
     display: none;
 }
+.selected-project{
+    background-color: white;
+}
