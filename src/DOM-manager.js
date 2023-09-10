@@ -26,6 +26,7 @@ const DOMmanager = (()=>{
         title.innerText = `${todo.title} ${todo.dueDate} ${todo.priority} ${todo.isDone} `;
         let closeButton = document.createElement('button');
         closeButton.innerText = 'X';
+        closeButton.classList.add('delete');
         task.append(title,closeButton);
         closeButton.addEventListener('click',()=>{
             project.removeTodo(todo.id);
@@ -40,6 +41,8 @@ const DOMmanager = (()=>{
         barName.innerText = project.name;
         let deleteButton = document.createElement('button');
         deleteButton.innerText = 'X';
+        deleteButton.classList.add('delete');
+        bar.classList.add('project');
         deleteButton.addEventListener('click',(e)=>{
             e.stopPropagation();
             deleteProject(project.id);
