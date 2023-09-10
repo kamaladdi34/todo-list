@@ -44,6 +44,11 @@ const DOMmanager = (()=>{
             bar.append(barName, deleteButton);
         }
         projectsList.append(bar);
+        bar.addEventListener('click',()=>{
+            updateTasks(project);
+            updateSelectedClass(project.id);
+            currentProjectId = project.id;
+        })
         return bar;
     }
     const updateSelectedClass = (id)=>{

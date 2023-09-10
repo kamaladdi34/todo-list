@@ -90,3 +90,6 @@ legend{
 .selected-project{
     background-color: white;
 }
+.close{
+    align-self: flex-end;
+}
