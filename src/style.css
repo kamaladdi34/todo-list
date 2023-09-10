@@ -30,6 +30,9 @@ body{
     flex-direction: column;
 }
 .app > aside > *{
+    height: 35px;
+}
+.app > aside > *{
     display: flex;
     align-items: center;
     justify-content: space-between;
