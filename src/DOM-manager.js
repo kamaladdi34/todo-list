@@ -35,6 +35,7 @@ const DOMmanager = (()=>{
         let deleteButton = document.createElement('button');
         deleteButton.innerText = 'X';
         deleteButton.addEventListener('click',(e)=>{
+            e.stopPropagation();
             deleteProject(project.id);
         })
         if(project.isPersistent){
