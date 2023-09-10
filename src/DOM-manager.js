@@ -11,6 +11,7 @@ const DOMmanager = (()=>{
         taskList.innerHTML = '';
         project.todos.forEach(task => {
             taskList.append(createTask(task))
+            console.log(task);
         });
     }
     const createProject = (project)=>{
@@ -23,7 +24,7 @@ const DOMmanager = (()=>{
     const createTask = (todo)=>{
         let task = document.createElement('div');
         let title = document.createElement('p');
-        title.innerText = todo.title;
+        title.innerText = `${todo.title} ${todo.dueDate} ${todo.priority} ${todo.isDone} `;
         task.append(title);
         return task;
     }
@@ -72,7 +73,7 @@ const DOMmanager = (()=>{
     }
     const addTask = (taskInput)=>{
         let index = projects.map((e)=> e.project.id).indexOf(currentProjectId);
-        projects[index].project.addTodo(taskInput.title, taskInput.description, 'today', taskInput.priority, taskInput.isDone);
+        projects[index].project.addTodo(taskInput.title, taskInput.description, taskInput.dueDate, taskInput.priority, taskInput.isDone);
         updateTasks(projects[index].project);
     }
     const addProject = (projectInput)=>{

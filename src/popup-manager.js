@@ -5,6 +5,7 @@ const popupManager = (()=>{
     const addTaskDescription = document.querySelector('#task-dsc');
     const addTaskPriority = document.querySelector('#priority');
     const addTaskIsDone = document.querySelector('#is-done');
+    const addTaskDueDate = document.querySelector('#task-date')
     const addTaskButton = document.querySelector('.add-task-popup .add');
     const addTask = document.querySelector('.add-task');
     const closeTaskPopUpButton = document.querySelector('.add-task-popup > .close');
@@ -54,6 +55,7 @@ const popupManager = (()=>{
         return {
             title: addTaskTitle.value,
             description: addTaskDescription.value,
+            dueDate: addTaskDueDate.value,
             priority: addTaskPriority.value,
             isDone: addTaskIsDone.checked,
         }
