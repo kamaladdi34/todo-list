@@ -54,8 +54,13 @@ const DOMmanager = (()=>{
         projects[index].project.addTodo(taskInput.title, taskInput.description, 'today', taskInput.priority, taskInput.isDone);
         updateTasks(projects[index].project);
     }
+    const addProject = (projectInput)=>{
+        let result = manager.createList(projectInput.title,projectInput.description,[],false);
+        createProject(result.project);
+    }
+    // creating the general project / list 
     let result = manager.createList('General','General list',[],true);
     createProject(result.project);
-    return {addTask}
+    return {addTask, addProject}
 })();
 export default DOMmanager;

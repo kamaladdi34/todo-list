@@ -56,20 +56,20 @@ button{
     flex-direction: column;
     gap: 10px;
 }
-.add-task-popup ul{
+.add-task-popup ul, .add-project-popup ul{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.add-task-popup ul li{
+.add-task-popup ul li, .add-project-popup ul li{
     display: flex;
     gap: 10px;
     align-items: center;
 }
-.add-task-popup ul li > label{
+.add-task-popup ul li > label, .add-project-popup ul li > label{
     flex-grow: 1;
 }
-.add-task-popup ul li > *{
+.add-task-popup ul li > *, .add-project-popup li > *{
     height: 25px;
 }
 input{
