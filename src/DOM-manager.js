@@ -1,10 +1,12 @@
 import manager from "./todo-list-manager";
+import popupManager from "./popup-manager";
 import Todo from "./todo";
 const DOMmanager = (()=>{
     const createProjectButton = document.querySelector('.add-project');
     const projectsList = document.querySelector('aside');
     const taskList = document.querySelector('.task-list');
     let projects = [];
+    let currentProjectId = null;
     const updateTasks = (project)=>{
         taskList.innerHTML = '';
         project.todos.forEach(task => {
@@ -12,6 +14,7 @@ const DOMmanager = (()=>{
         });
     }
     const createProject = (project)=>{
+        currentProjectId = project.id;
         let projectBar = createProjectBar(project);
         projects.push({projectBar: projectBar, project: project});
         updateTasks(project);
@@ -32,7 +35,11 @@ const DOMmanager = (()=>{
         deleteButton.addEventListener('click',(e)=>{
             deleteProject(project.id);
         })
-        bar.append(barName, deleteButton);
+        if(project.isPersistent){
+            bar.append(barName);
+        }else{
+            bar.append(barName, deleteButton);
+        }
         projectsList.append(bar);
         return bar;
     }
@@ -42,10 +49,13 @@ const DOMmanager = (()=>{
         projects[index].projectBar.remove();
         projects.splice(index,1);
     }
-    let todoExample = new Todo('feed puppy', 'feed puppy some food', 'today', 'high', false);
-    createProjectButton.addEventListener('click',(e)=>{
-        let result = manager.createList('MyList','My nice big list',[todoExample],false);
-        createProject(result.project);
-    })
+    const addTask = (taskInput)=>{
+        let index = projects.map((e)=> e.project.id).indexOf(currentProjectId);
+        projects[index].project.addTodo(taskInput.title, taskInput.description, 'today', taskInput.priority, taskInput.isDone);
+        updateTasks(projects[index].project);
+    }
+    let result = manager.createList('General','General list',[],true);
+    createProject(result.project);
+    return {addTask}
 })();
 export default DOMmanager;
