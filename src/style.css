@@ -128,6 +128,7 @@ button.close, button.delete{
 .todo-buttons{
     display:  flex;
     gap: 10px;
+    align-items: center;
 }
 .projects-header, .todo-header{
     font-weight: bold;
