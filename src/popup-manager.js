@@ -25,6 +25,8 @@ const popupManager = (()=>{
     addProject.addEventListener('click',(event)=>{
         addProjectPopUp.classList.remove('hidden');
         addProjectPopUp.reset();
+        addProjectTitle.focus();
+        addProjectTitle.select();
     })
     closeProjectPopUpButton.addEventListener('click',(event)=>{
         addProjectPopUp.classList.add('hidden');
@@ -51,6 +53,8 @@ const popupManager = (()=>{
     addTask.addEventListener('click',(event)=>{
         addTaskPopUp.classList.remove('hidden');
         addTaskPopUp.reset();
+        addTaskTitle.focus();
+        addTaskTitle.select();
         setTaskPopUp('Add new task', 'Add');
         popupCall = ()=>{
             DOMmanager.addTask(getTaskPopUpInput());
