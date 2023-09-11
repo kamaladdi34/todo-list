@@ -12,13 +12,13 @@
         <aside>
             <div class="projects-header">
                 <p>Projects</p>
-                <button class="add-project">Create Project</button>
+                <button class="add-project">+</button>
             </div>
         </aside>
         <section>
             <div class="todo-header">
                 <p>General</p>
-                <button class="add-task">Add Task</button>
+                <button class="add-task">+</button>
             </div>
             <div class="task-list">
                 
@@ -26,8 +26,10 @@
         </section>
     </div>
     <form class="add-task-popup hidden">
-        <button class="close">X</button>
-        <legend>Add new task</legend>
+        <div class="header">
+            <legend>Add new task</legend>
+            <button class="close">Close</button>
+        </div>
         <ul>
             <li>
                 <label for="task-title">Task title:</label>
@@ -57,8 +59,10 @@
         <button class="add">Add</button>
     </form>
     <form class="add-project-popup hidden">
-        <button class="close">X</button>
-        <legend>Add a new project</legend>
+        <div class="header">
+            <legend>Add a new project</legend>
+            <button class="close">Close</button>
+        </div>
         <ul>
             <li>
                 <label for="project-title">Title</label>

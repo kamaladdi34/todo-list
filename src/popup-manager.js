@@ -2,7 +2,7 @@ import DOMmanager from "./DOM-manager";
 import manager from "./todo-list-manager";
 const popupManager = (()=>{
     const addTaskPopUp = document.querySelector('.add-task-popup');
-    const addTaskPopUpTitle = document.querySelector('.add-task-popup > legend');
+    const addTaskPopUpTitle = document.querySelector('.add-task-popup > .header >  legend');
     const addTaskTitle = document.querySelector('#task-title');
     const addTaskDescription = document.querySelector('#task-dsc');
     const addTaskPriority = document.querySelector('#priority');
@@ -10,13 +10,13 @@ const popupManager = (()=>{
     const addTaskDueDate = document.querySelector('#task-date')
     const addTaskButton = document.querySelector('.add-task-popup .add');
     const addTask = document.querySelector('.add-task');
-    const closeTaskPopUpButton = document.querySelector('.add-task-popup > .close');
+    const closeTaskPopUpButton = document.querySelector('.add-task-popup > .header > .close');
     
     const addProjectPopUp = document.querySelector('.add-project-popup');
     const addProjectTitle = document.querySelector('#project-title');
     const addProjectDescription = document.querySelector('#project-description');
     const addProjectButton = document.querySelector('.add-project-popup .add');
-    const closeProjectPopUpButton = document.querySelector('.add-project-popup > .close');
+    const closeProjectPopUpButton = document.querySelector('.add-project-popup > .header > .close');
 
     let popupCall = ()=>{
         DOMmanager.addProject(getProjectPoPupInput());

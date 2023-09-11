@@ -29,7 +29,7 @@ const DOMmanager = (()=>{
         let closeButton = document.createElement('button');
         let buttons = document.createElement('div');
         buttons.classList.add('todo-buttons');
-        closeButton.innerText = 'X';
+        closeButton.innerText = 'Delete';
         closeButton.classList.add('delete');
         let editButton = document.createElement('button');
         editButton.innerText = 'Edit'
@@ -51,7 +51,7 @@ const DOMmanager = (()=>{
         let barName = document.createElement('p');
         barName.innerText = project.name;
         let deleteButton = document.createElement('button');
-        deleteButton.innerText = 'X';
+        deleteButton.innerText = 'Delete';
         deleteButton.classList.add('delete');
         bar.classList.add('project');
         deleteButton.addEventListener('click',(e)=>{
