@@ -16,5 +16,9 @@ class List{
         let index = this.todos.map((e)=> e.id).indexOf(id);
         this.todos.splice(index,1);
     }
+    updateTodo(id,title, description, dueDate, priority, isDone){
+        let index = this.todos.map((e)=> e.id).indexOf(id);
+        this.todos[index] = new Todo(title, description, dueDate, priority, isDone);
+    }
 }
 export default List;

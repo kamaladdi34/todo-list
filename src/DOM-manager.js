@@ -27,8 +27,13 @@ const DOMmanager = (()=>{
         let closeButton = document.createElement('button');
         closeButton.innerText = 'X';
         closeButton.classList.add('delete');
+        let editButton = document.createElement('button');
+        editButton.innerText = 'Edit'
+        editButton.addEventListener('click',()=>{
+            popupManager.showUpdatePopup(todo.id,project.id);
+        })
         task.classList.add('todo');
-        task.append(title,closeButton);
+        task.append(title,editButton,closeButton);
         closeButton.addEventListener('click',()=>{
             project.removeTodo(todo.id);
             updateTasks(project);
@@ -92,6 +97,6 @@ const DOMmanager = (()=>{
     // creating the general project / list 
     let result = manager.createList('General','General list',[],true);
     createProject(result.project);
-    return {addTask, addProject}
+    return {addTask, addProject, updateTasks}
 })();
 export default DOMmanager;

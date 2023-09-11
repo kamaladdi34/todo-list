@@ -1,4 +1,5 @@
 import DOMmanager from "./DOM-manager";
+import manager from "./todo-list-manager";
 const popupManager = (()=>{
     const addTaskPopUp = document.querySelector('.add-task-popup');
     const addTaskTitle = document.querySelector('#task-title');
@@ -16,6 +17,9 @@ const popupManager = (()=>{
     const addProjectButton = document.querySelector('.add-project-popup .add');
     const closeProjectPopUpButton = document.querySelector('.add-project-popup > .close');
 
+    let popupCall = ()=>{
+        DOMmanager.addProject(getProjectPoPupInput());
+    }
     const addProject = document.querySelector('.add-project');
     addProject.addEventListener('click',(event)=>{
         addProjectPopUp.classList.remove('hidden');
@@ -41,16 +45,31 @@ const popupManager = (()=>{
     addTask.addEventListener('click',(event)=>{
         addTaskPopUp.classList.remove('hidden');
         addTaskPopUp.reset();
+        popupCall = ()=>{
+            DOMmanager.addTask(getTaskPopUpInput());
+        }
+
     })
     addTaskButton.addEventListener('click',(event)=>{
         event.preventDefault();
         if(addTaskPopUp.checkValidity()){
             addTaskPopUp.classList.add('hidden');
-            DOMmanager.addTask(getTaskPopUpInput());
+            popupCall();
+            
         }else{
             addTaskPopUp.reportValidity();
         }
     })
+    const showUpdatePopup = (taskId, projectId)=>{
+
+        addTaskPopUp.classList.remove('hidden');
+        addTaskPopUp.reset();
+        popupCall = ()=>{
+            let input = getTaskPopUpInput();
+            manager.getList(projectId).updateTodo(taskId, input.title, input.description, input.dueDate, input.priority, input.isDone)
+            DOMmanager.updateTasks(manager.getList(projectId));
+        }
+    }
     const getTaskPopUpInput = ()=>{
         return {
             title: addTaskTitle.value,
@@ -66,5 +85,6 @@ const popupManager = (()=>{
             description: addProjectDescription.value,
         }
     }
+    return {showUpdatePopup}
 })();
 export default popupManager;
