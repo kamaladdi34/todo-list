@@ -2,6 +2,7 @@ import DOMmanager from "./DOM-manager";
 import manager from "./todo-list-manager";
 const popupManager = (()=>{
     const addTaskPopUp = document.querySelector('.add-task-popup');
+    const addTaskPopUpTitle = document.querySelector('.add-task-popup > legend');
     const addTaskTitle = document.querySelector('#task-title');
     const addTaskDescription = document.querySelector('#task-dsc');
     const addTaskPriority = document.querySelector('#priority');
@@ -29,6 +30,11 @@ const popupManager = (()=>{
         addProjectPopUp.classList.add('hidden');
         event.preventDefault();
     })
+    const setTaskPopUp = (title, buttonText)=>{
+        addTaskPopUpTitle.innerText = title;
+        addTaskButton.innerText = buttonText;
+        
+    }
     addProjectButton.addEventListener('click',(event)=>{
         event.preventDefault();
         if(addProjectPopUp.checkValidity()){
@@ -45,6 +51,7 @@ const popupManager = (()=>{
     addTask.addEventListener('click',(event)=>{
         addTaskPopUp.classList.remove('hidden');
         addTaskPopUp.reset();
+        setTaskPopUp('Add new task', 'Add');
         popupCall = ()=>{
             DOMmanager.addTask(getTaskPopUpInput());
         }
@@ -61,7 +68,7 @@ const popupManager = (()=>{
         }
     })
     const showUpdatePopup = (taskId, projectId)=>{
-
+        setTaskPopUp('Update todo', 'Update');
         addTaskPopUp.classList.remove('hidden');
         addTaskPopUp.reset();
         popupCall = ()=>{
