@@ -5,6 +5,7 @@ const DOMmanager = (()=>{
     const createProjectButton = document.querySelector('.add-project');
     const projectsList = document.querySelector('aside');
     const taskList = document.querySelector('.task-list');
+    const todoHeaderProjectTitle = document.querySelector('.todo-header > p');
     let projects = [];
     let currentProjectId = null;
     const updateTasks = (project)=>{
@@ -12,6 +13,7 @@ const DOMmanager = (()=>{
         project.todos.forEach(task => {
             taskList.append(createTask(task, project))
         });
+        todoHeaderProjectTitle.innerText = project.name;
     }
     const createProject = (project)=>{
         currentProjectId = project.id;
