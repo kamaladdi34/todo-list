@@ -80,15 +80,19 @@ button:hover{
     align-items: center;
 }
 .add-task-popup ul li > label, .add-project-popup ul li > label{
-    flex-grow: 1;
     display: flex;
     align-items: center;
 }
-.add-task-popup ul li > *, .add-project-popup li > *{
+.add-task-popup ul li > :not(#is-done), .add-project-popup li > * {
     height: 35px;
+    width: 50%;
+}
+.add-task-popup ul li:has(#is-done){
+    justify-content: space-between;
 }
 input, select{
     padding-left: 10px;
+    padding-right: 10px;
     border: none;
     background-color: rgb(241, 241, 241);
     border-radius: 6px;
