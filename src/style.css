@@ -27,6 +27,8 @@ body{
     background-color: rgb(247, 247, 247);
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    gap: 10px;
 }
 .app > aside > *{
     min-height: 35px;
@@ -36,6 +38,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-radius: 6px;
 }
 .app > section{
     grid-area: 2/2/3/3;
@@ -48,6 +51,7 @@ button{
     background-color: #00c8ff;
     cursor: pointer;
     font-weight: 500;
+    border-radius: 6px;
 }
 button:hover{
     background-color: #0099ff;
@@ -115,12 +119,21 @@ button.close, button.delete{
     justify-content: center;
     align-items: center;
 }
-.project{
-    background-color: rgb(174, 219, 255);
-}
 .selected-project{
-    background-color: white;
+    background-color: rgb(217, 217, 217);
 }
 .todo{
     background-color: white;
+}
+.todo-buttons{
+    display:  flex;
+    gap: 10px;
+}
+.projects-header, .todo-header{
+    font-weight: bold;
+}
+.todo-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
