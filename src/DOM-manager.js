@@ -32,7 +32,8 @@ const DOMmanager = (()=>{
         closeButton.classList.add('delete');
         let editButton = document.createElement('button');
         editButton.innerText = 'Edit'
-        editButton.addEventListener('click',()=>{
+        editButton.addEventListener('click',(event)=>{
+            event.stopPropagation();
             popupManager.showUpdatePopup(todo.id,project.id);
         });
         let priority = document.createElement('div');
