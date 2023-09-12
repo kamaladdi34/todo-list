@@ -20,5 +20,9 @@ class List{
         let index = this.todos.map((e)=> e.id).indexOf(id);
         this.todos[index] = new Todo(title, description, dueDate, priority, isDone);
     }
+    getTodo(id){
+        let index = this.todos.map((e)=> e.id).indexOf(id);
+        return this.todos[index];
+    }
 }
 export default List;

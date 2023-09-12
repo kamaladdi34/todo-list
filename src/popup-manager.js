@@ -75,6 +75,12 @@ const popupManager = (()=>{
         setTaskPopUp('Update todo', 'Update');
         addTaskPopUp.classList.remove('hidden');
         addTaskPopUp.reset();
+        let todo  = manager.getList(projectId).getTodo(taskId);
+        addTaskTitle.value = todo.title;
+        addTaskDescription.value = todo.description;
+        addTaskDueDate.value = todo.dueDate;
+        addTaskPriority.value = todo.priority;
+        addTaskIsDone.checked = todo.isDone;
         popupCall = ()=>{
             let input = getTaskPopUpInput();
             manager.getList(projectId).updateTodo(taskId, input.title, input.description, input.dueDate, input.priority, input.isDone)
