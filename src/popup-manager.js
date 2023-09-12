@@ -72,6 +72,7 @@ const popupManager = (()=>{
         }
     })
     const showUpdatePopup = (taskId, projectId)=>{
+        console.log(taskId,projectId);
         setTaskPopUp('Update todo', 'Update');
         addTaskPopUp.classList.remove('hidden');
         addTaskPopUp.reset();

@@ -1,5 +1,8 @@
 import manager from "./todo-list-manager";
 import popupManager from "./popup-manager";
+import Todo from "./todo";
+import List from "./list";
+
 const DOMmanager = (()=>{
     const projectsList = document.querySelector('aside');
     const taskList = document.querySelector('.task-list');
@@ -19,6 +22,7 @@ const DOMmanager = (()=>{
         projects.push({projectBar: projectBar, project: project});
         updateTasks(project);
         updateSelectedClass(project.id);
+        return project;
     }
     const createTask = (todo, project)=>{
         let task = document.createElement('div');
@@ -116,7 +120,17 @@ const DOMmanager = (()=>{
     }
     // creating the general project / list 
     let result = manager.createList('General','General list',[],true);
+    result.project.addTodo('Empty trash','Empty the trash can','2023-09-27','low',false);
     createProject(result.project);
+
+    const createFillerProject = ()=>{
+        let result = manager.createList('Pets','My pets',[],false);
+        result.project.addTodo('Feed puppy','Feed the puppy some food','2023-09-27','medium',false);
+        result.project.addTodo('Clean cat','Clean Monchon the cat','2023-09-27','heigh',false);
+        result.project.addTodo('Buy new toys','Buy some new toys for Monchon','2023-09-27','low',false);
+        createProject(result.project);
+    }
+    createFillerProject();
     return {addTask, addProject, updateTasks}
 })();
 export default DOMmanager;
