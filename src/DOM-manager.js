@@ -1,8 +1,6 @@
 import manager from "./todo-list-manager";
 import popupManager from "./popup-manager";
-import Todo from "./todo";
 const DOMmanager = (()=>{
-    const createProjectButton = document.querySelector('.add-project');
     const projectsList = document.querySelector('aside');
     const taskList = document.querySelector('.task-list');
     const todoHeaderProjectTitle = document.querySelector('.todo-header > p');
