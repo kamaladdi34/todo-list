@@ -25,7 +25,8 @@ const DOMmanager = (()=>{
     const createTask = (todo, project)=>{
         let task = document.createElement('div');
         let title = document.createElement('p');
-        title.innerText = `${todo.title} ${todo.dueDate} ${todo.priority} `;
+        title.innerText = `${todo.title}`;
+        title.classList.add('todo-title');
         let closeButton = document.createElement('button');
         let buttons = document.createElement('div');
         buttons.classList.add('todo-buttons');
@@ -35,8 +36,11 @@ const DOMmanager = (()=>{
         editButton.innerText = 'Edit'
         editButton.addEventListener('click',()=>{
             popupManager.showUpdatePopup(todo.id,project.id);
-        })
-        buttons.append(closeButton, editButton);
+        });
+        let priority = document.createElement('div');
+        priority.innerText = todo.priority;
+        priority.classList.add('priority', todo.priority)
+        buttons.append(priority,closeButton, editButton);
         task.classList.add('todo');
         task.append(title,buttons);
         closeButton.addEventListener('click',()=>{
