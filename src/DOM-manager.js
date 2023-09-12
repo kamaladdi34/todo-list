@@ -41,13 +41,22 @@ const DOMmanager = (()=>{
         priority.innerText = todo.priority;
         priority.classList.add('priority', todo.priority)
         buttons.append(priority,closeButton, editButton);
+        let details = document.createElement('div');
+        details.innerText = todo.description;
+        details.classList.add('todo-details')
         task.classList.add('todo');
+        details.classList.add('shown');
+        task.addEventListener('click',()=>{
+            details.classList.toggle('shown');
+        })
+        let container = document.createElement('div');
         task.append(title,buttons);
+        container.append(task, details);
         closeButton.addEventListener('click',()=>{
             project.removeTodo(todo.id);
             updateTasks(project);
         })
-        return task;
+        return container;
     }
     const createProjectBar = (project)=>{
         let bar = document.createElement('div');
