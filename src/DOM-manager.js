@@ -40,7 +40,10 @@ const DOMmanager = (()=>{
         let priority = document.createElement('div');
         priority.innerText = todo.priority;
         priority.classList.add('priority', todo.priority)
-        buttons.append(priority,closeButton, editButton);
+        let dueDate = document.createElement('div');
+        dueDate.innerText = todo.dueDate;
+        dueDate.classList.add('due-date')
+        buttons.append(dueDate, priority,closeButton, editButton);
         let details = document.createElement('div');
         details.innerText = todo.description;
         details.classList.add('todo-details')
