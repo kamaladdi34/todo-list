@@ -1,7 +1,5 @@
 import manager from "./todo-list-manager";
 import popupManager from "./popup-manager";
-import Todo from "./todo";
-import List from "./list";
 
 const DOMmanager = (()=>{
     const projectsList = document.querySelector('aside');

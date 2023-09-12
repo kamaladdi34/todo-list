@@ -49,13 +49,10 @@ body{
 button{
     border: none;
     padding: 10px 20px 10px 20px;
-    background-color: #00c8ff;
+    background-color: #0095ff;
     cursor: pointer;
     font-weight: 500;
     border-radius: 6px;
-}
-button:hover{
-    background-color: #0099ff;
 }
 .add-task-popup, .add-project-popup{
     border-radius: 6px;
@@ -198,8 +195,8 @@ aside .projects-header{
     width: 80px;
 }
 .low{
-    border: 2px solid greenyellow;
-    color: greenyellow;
+    border: 2px solid rgb(47, 255, 57);
+    color: rgb(47, 255, 57);
 }
 .medium{
     border: 2px solid rgb(255, 196, 0);
@@ -212,6 +209,7 @@ aside .projects-header{
 .todo-title{
     text-transform: capitalize;
     font-weight: bold;
+    padding-left: 10px;
     display: flex;
     align-items: center;
     font-style: italic;
