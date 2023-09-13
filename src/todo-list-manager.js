@@ -20,6 +20,5 @@ const manager = (()=>{
         return {id: list.id, project: list};
     }
     return {createList, removeList, getCurrentLists, getList};
-
 })();
 export default manager;

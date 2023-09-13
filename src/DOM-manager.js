@@ -1,6 +1,6 @@
 import manager from "./todo-list-manager";
 import popupManager from "./popup-manager";
-
+import storageManager from "./storage-manager";
 const DOMmanager = (()=>{
     const projectsList = document.querySelector('aside');
     const taskList = document.querySelector('.task-list');
@@ -116,19 +116,26 @@ const DOMmanager = (()=>{
         let result = manager.createList(projectInput.title,projectInput.description,[],false);
         createProject(result.project);
     }
+    
+    const displayStoredProjects = ()=>{
+        let data = storageManager.loadProjects();
+        for (let i = 0; i < data.length; i++) {
+            let result = manager.createList(data[i].name,data[i].description,[],data[i].isPersistent);
+            for (let j = 0; j < data[i].todos.length; j++) {
+                let todo = data[i].todos[j];
+                result.project.addTodo(todo.title,todo.description,todo.dueDate,todo.priority,todo.isDone);
+            }
+            createProject(result.project);
+        }
+    }
+    displayStoredProjects();
     // creating the general project / list 
-    let result = manager.createList('General','General list',[],true);
-    result.project.addTodo('Empty trash','Empty the trash can','2023-09-27','low',false);
-    createProject(result.project);
-
-    const createFillerProject = ()=>{
-        let result = manager.createList('Pets','My pets',[],false);
-        result.project.addTodo('Feed puppy','Feed the puppy some food','2023-09-27','medium',false);
-        result.project.addTodo('Clean cat','Clean Monchon the cat','2023-09-27','heigh',false);
-        result.project.addTodo('Buy new toys','Buy some new toys for Monchon','2023-09-27','low',false);
+    if(!localStorage.getItem('created-genera-project')){
+        let result = manager.createList('General','General list',[],true);
+        result.project.addTodo('Pet the cat','Pet the cat, once only!','2029-09-27','medium',false);
+        localStorage.setItem('created-genera-project',true);
         createProject(result.project);
     }
-    createFillerProject();
     return {addTask, addProject, updateTasks}
 })();
 export default DOMmanager;
