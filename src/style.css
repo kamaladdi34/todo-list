@@ -218,7 +218,6 @@ aside .projects-header{
     display: flex;
     align-items: center;
     font-style: italic;
-    color: gray;
 }
 .todo-details{
     padding: 10px;

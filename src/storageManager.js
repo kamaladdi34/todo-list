@@ -1,4 +1,4 @@
 const storageManager = (()=>{
 
 })();
-export storageManager;
+export default storageManager;
