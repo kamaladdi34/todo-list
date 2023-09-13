@@ -22,14 +22,17 @@ body{
     align-items: center;
     justify-content: start;
     padding-left: 10px;
+    border-bottom: 2px solid rgb(241, 241, 241);
+
 }
 .app > aside{
     grid-area: 2/1/3/2;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(250, 250, 250);
     display: flex;
     flex-direction: column;
     padding: 10px;
     gap: 10px;
+
 }
 .app > aside > *{
     min-height: 35px;
@@ -49,10 +52,11 @@ body{
 button{
     border: none;
     padding: 10px 20px 10px 20px;
-    background-color: #0095ff;
+    background-color: #000000;
     cursor: pointer;
     font-weight: 500;
     border-radius: 6px;
+    color: white;
 }
 .add-task-popup, .add-project-popup{
     border-radius: 6px;
@@ -110,11 +114,11 @@ legend{
     display: flex;
     flex-direction: column;
     padding: 10px;
-    gap: 10px;
+    gap: 5px;
 }
 .task-list > *{
     border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    box-shadow: rgba(0, 0, 0, 0.061) 0px 3px 12px;
 }
 .task-list  .todo{
     display: flex;
@@ -137,7 +141,8 @@ button.delete{
 }
 .selected-project{
     background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    box-shadow: rgba(0, 0, 0, 0.061) 0px 3px 12px;
+
 }
 .todo{
     background-color: white;
@@ -164,9 +169,9 @@ aside .projects-header{
 .add-project, .add-task{
     font-size: 25px;
     padding: 2px 10px;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    box-shadow: rgba(0, 0, 0, 0.061) 0px 3px 12px;
     background-color: white;
-    color: #b8b8b8;
+    color: black;
     display: flex;
     align-items: center;
     font-size: 16px;

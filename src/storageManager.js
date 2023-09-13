@@ -1,0 +1,4 @@
+const storageManager = (()=>{
+
+})();
+export storageManager;
